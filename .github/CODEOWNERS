@@ -1,0 +1,15 @@
+# Default owner for the entire repository
+* @soorajpsuresh74
+
+# React application
+/src/ @soorajpsuresh74
+
+# Public assets
+/public/ @soorajpsuresh74
+
+# GitHub Actions
+/.github/workflows/ @soorajpsuresh74
+
+# Deployment and project configuration
+/vite.config.js @soorajpsuresh74
+/package.json @soorajpsuresh74

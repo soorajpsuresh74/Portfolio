@@ -1,0 +1,31 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px 40px;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--text);
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

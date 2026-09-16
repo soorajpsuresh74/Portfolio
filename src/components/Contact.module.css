@@ -1,0 +1,36 @@
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.headline {
+  font-size: 30px;
+  max-width: 16ch;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14.5px;
+}
+
+.links a {
+  text-decoration: none;
+  color: var(--text-dim);
+  transition: color 0.15s ease;
+}
+
+.links a:hover {
+  color: var(--teal);
+}
+
+@media (max-width: 720px) {
+  .headline {
+    font-size: 26px;
+  }
+}

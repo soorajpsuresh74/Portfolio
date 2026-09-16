@@ -1,0 +1,66 @@
+.hero {
+  padding: 88px 0 96px;
+  border-bottom: 1px solid var(--line);
+}
+
+.grid {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.hero-eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  color: var(--teal);
+  margin-bottom: 18px;
+}
+
+.prompt {
+  color: var(--text-dim);
+}
+
+.hero h1 {
+  font-size: clamp(32px, 4.4vw, 52px);
+  letter-spacing: -0.5px;
+}
+
+.accent {
+  color: var(--amber);
+}
+
+.sub {
+  margin-top: 20px;
+  color: var(--text-dim);
+  font-size: 17px;
+  max-width: 52ch;
+}
+
+.ctas {
+  margin-top: 34px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.vennWrap {
+  display: flex;
+  justify-content: center;
+}
+
+.vennWrap svg {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
