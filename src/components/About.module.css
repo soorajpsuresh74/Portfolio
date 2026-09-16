@@ -1,0 +1,10 @@
+.body {
+  max-width: 68ch;
+  color: var(--text-dim);
+  font-size: 16.5px;
+}
+
+.body strong {
+  color: var(--text);
+  font-weight: 500;
+}

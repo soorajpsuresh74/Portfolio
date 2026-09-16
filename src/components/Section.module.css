@@ -1,0 +1,14 @@
+.section {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.section.bordered {
+  border-bottom: 1px solid var(--line);
+}
+
+.inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 32px;
+}
