@@ -1,0 +1,76 @@
+{
+  "kind": "singleType",
+  "collectionName": "profiles",
+  "info": {
+    "singularName": "profile",
+    "pluralName": "profiles",
+    "displayName": "Profile",
+    "description": "Name, links and the text sections of the portfolio"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 80
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 120
+    },
+    "email": {
+      "type": "email"
+    },
+    "resumeUrl": {
+      "type": "string",
+      "maxLength": 500
+    },
+    "linkedinUrl": {
+      "type": "string",
+      "maxLength": 500
+    },
+    "githubUrl": {
+      "type": "string",
+      "maxLength": 500
+    },
+    "heroEyebrow": {
+      "type": "string",
+      "maxLength": 60
+    },
+    "heroEyebrowAction": {
+      "type": "string",
+      "maxLength": 60
+    },
+    "heroHeadline": {
+      "type": "string",
+      "maxLength": 160
+    },
+    "heroAccent": {
+      "type": "string",
+      "maxLength": 40
+    },
+    "heroSub": {
+      "type": "text",
+      "maxLength": 800
+    },
+    "about": {
+      "type": "text",
+      "maxLength": 3000
+    },
+    "focusIntro": {
+      "type": "text",
+      "maxLength": 1000
+    },
+    "focusItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.focus-item"
+    },
+    "contactHeadline": {
+      "type": "string",
+      "maxLength": 160
+    }
+  }
+}

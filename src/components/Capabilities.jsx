@@ -1,8 +1,7 @@
 import Section from "./Section";
-import { capabilities } from "../data/portfolio";
 import styles from "./Capabilities.module.css";
 
-export default function Capabilities() {
+export default function Capabilities({ capabilities }) {
   return (
     <Section id="capabilities" number="02" title="What I do">
       <div className={styles.columns}>

@@ -1,7 +1,6 @@
-import { personal } from "../data/portfolio";
 import styles from "./Footer.module.css";
 
-export default function Footer() {
+export default function Footer({ personal }) {
   return (
     <footer className={styles.footer}>
       <div className="wrap">

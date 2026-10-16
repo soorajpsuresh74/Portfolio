@@ -1,5 +1,6 @@
-// Single source of truth for all portfolio copy.
-// Edit here to update names, links, projects, and content.
+// Bundled fallback content. The live site loads content from Strapi (see
+// src/lib/cms.js); this is shown on a first visit until Strapi responds, or
+// when VITE_STRAPI_URL isn't set. Edit content in the Strapi admin instead.
 
 export const personal = {
   name: "Sooraj P S",
@@ -23,6 +24,7 @@ export const hero = {
   eyebrow: "sooraj@dev:~$",
   eyebrowAction: "whoami",
   headline: "Building applications, then checking how they fail.",
+  accent: "fail",
   sub:
     "Full-stack developer working at the intersection of software engineering, application security, cloud infrastructure, and DevSecOps. I build SaaS applications end to end — and apply security practice throughout the build, not after it ships.",
   primaryCta: { label: "View my projects", href: "#projects" },

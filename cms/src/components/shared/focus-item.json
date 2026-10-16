@@ -1,0 +1,9 @@
+{
+  "collectionName": "components_shared_focus_items",
+  "info": { "displayName": "Focus item", "icon": "crosshair" },
+  "options": {},
+  "attributes": {
+    "key": { "type": "string", "required": true, "maxLength": 40 },
+    "value": { "type": "text", "required": true, "maxLength": 300 }
+  }
+}
