@@ -1,0 +1,8 @@
+{
+  "collectionName": "components_shared_skills",
+  "info": { "displayName": "Skill", "icon": "code" },
+  "options": {},
+  "attributes": {
+    "name": { "type": "string", "required": true, "maxLength": 60 }
+  }
+}

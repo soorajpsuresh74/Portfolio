@@ -1,7 +1,6 @@
-import { hero } from "../data/portfolio";
 import styles from "./Hero.module.css";
 
-export default function Hero() {
+export default function Hero({ hero }) {
   return (
     <section className={styles.hero}>
       <div className={styles.grid}>
@@ -10,10 +9,7 @@ export default function Hero() {
             <span className={styles.prompt}>{hero.eyebrow}</span>{" "}
             {hero.eyebrowAction}
           </div>
-          <h1>
-            {hero.headline.split("fail")[0]}
-            <span className={styles.accent}>fail</span>.
-          </h1>
+          <Headline text={hero.headline} accent={hero.accent} />
           <p className={styles.sub}>{hero.sub}</p>
           <div className={styles.ctas}>
             <a className="btn btn-primary" href={hero.primaryCta.href}>
@@ -35,6 +31,20 @@ export default function Hero() {
         </div>
       </div>
     </section>
+  );
+}
+
+/** Headline with the last occurrence of `accent` highlighted. */
+function Headline({ text, accent }) {
+  const i = accent ? text.lastIndexOf(accent) : -1;
+  if (i === -1) return <h1>{text}</h1>;
+
+  return (
+    <h1>
+      {text.slice(0, i)}
+      <span className={styles.accent}>{accent}</span>
+      {text.slice(i + accent.length)}
+    </h1>
   );
 }
 

@@ -1,5 +1,4 @@
 import Section from "./Section";
-import { about } from "../data/portfolio";
 import styles from "./About.module.css";
 
 /**
@@ -15,7 +14,7 @@ function renderRich(text) {
   });
 }
 
-export default function About() {
+export default function About({ about }) {
   return (
     <Section id="about" number="01" title="About">
       <p className={styles.body}>{renderRich(about.body)}</p>

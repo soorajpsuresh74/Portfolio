@@ -35,6 +35,10 @@ jobs:
 
       - name: Build React application
         run: npm run build
+        env:
+          # Strapi URL, e.g. https://strapi-cms.onrender.com. Vite inlines it into the
+          # public JS bundle, so it isn't secret; a repository variable is enough.
+          VITE_STRAPI_URL: ${{ vars.VITE_STRAPI_URL || secrets.VITE_STRAPI_URL }}
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5

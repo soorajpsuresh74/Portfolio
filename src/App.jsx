@@ -7,21 +7,24 @@ import Focus from "./components/Focus";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import { useContent } from "./lib/useContent";
 
 export default function App() {
+  const content = useContent();
+
   return (
     <>
-      <Navbar />
+      <Navbar nav={content.nav} personal={content.personal} />
       <main>
-        <Hero />
-        <About />
-        <Capabilities />
-        <Stack />
-        <Focus />
-        <Projects />
-        <Contact />
+        <Hero hero={content.hero} />
+        <About about={content.about} />
+        <Capabilities capabilities={content.capabilities} />
+        <Stack stack={content.stack} />
+        <Focus focus={content.focus} />
+        <Projects projects={content.projects} />
+        <Contact contact={content.contact} personal={content.personal} />
       </main>
-      <Footer />
+      <Footer personal={content.personal} />
     </>
   );
 }

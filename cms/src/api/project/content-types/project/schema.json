@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "singularName": "project",
+    "pluralName": "projects",
+    "displayName": "Project",
+    "description": "Cards in the Selected work section"
+  },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "title": { "type": "string", "required": true, "maxLength": 120 },
+    "tag": { "type": "string", "maxLength": 40 },
+    "description": { "type": "text", "maxLength": 1000 },
+    "link": { "type": "string", "maxLength": 500 },
+    "order": { "type": "integer", "default": 0 }
+  }
+}

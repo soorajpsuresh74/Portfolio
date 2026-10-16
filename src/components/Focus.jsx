@@ -1,8 +1,7 @@
 import Section from "./Section";
-import { focus } from "../data/portfolio";
 import styles from "./Focus.module.css";
 
-export default function Focus() {
+export default function Focus({ focus }) {
   return (
     <Section id="focus" number="04" title="Currently focused on">
       <div className={styles.grid}>

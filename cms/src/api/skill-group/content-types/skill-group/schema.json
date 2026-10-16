@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "skill_groups",
+  "info": {
+    "singularName": "skill-group",
+    "pluralName": "skill-groups",
+    "displayName": "Skill group",
+    "description": "Groups of skills in the Stack section"
+  },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "name": { "type": "string", "required": true, "maxLength": 60 },
+    "skills": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.skill"
+    },
+    "order": { "type": "integer", "default": 0 }
+  }
+}

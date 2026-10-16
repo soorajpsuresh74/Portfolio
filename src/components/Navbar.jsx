@@ -1,7 +1,6 @@
-import { nav, personal } from "../data/portfolio";
 import styles from "./Navbar.module.css";
 
-export default function Navbar() {
+export default function Navbar({ nav, personal }) {
   return (
     <header className={styles.nav}>
       <div className={styles.inner}>

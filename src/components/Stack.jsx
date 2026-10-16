@@ -1,8 +1,7 @@
 import Section from "./Section";
-import { stack } from "../data/portfolio";
 import styles from "./Stack.module.css";
 
-export default function Stack() {
+export default function Stack({ stack }) {
   return (
     <Section id="stack" number="03" title="Stack">
       <div className={styles.grid}>
