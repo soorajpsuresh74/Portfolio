@@ -1,47 +1,4 @@
 services:
-  # React portfolio (Vite) — repo root
-  - type: web
-    name: portfolio
-    runtime: static
-    buildCommand: npm ci && npm run build
-    staticPublishPath: ./dist
-
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
-
-    headers:
-      - path: /*
-        name: Content-Security-Policy
-        value: "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.onrender.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'"
-      - path: /*
-        name: X-Frame-Options
-        value: DENY
-      - path: /*
-        name: X-Content-Type-Options
-        value: nosniff
-      - path: /*
-        name: Referrer-Policy
-        value: strict-origin-when-cross-origin
-      - path: /*
-        name: Permissions-Policy
-        value: camera=(), microphone=(), geolocation=()
-      - path: /*
-        name: Strict-Transport-Security
-        value: max-age=31536000; includeSubDomains
-
-    envVars:
-      - key: NODE_VERSION
-        value: "22.16.0"
-
-      - key: BASE_PATH
-        value: /
-
-      # Public URL of the strapi-cms service, e.g. https://strapi-cms.onrender.com
-      - key: VITE_STRAPI_URL
-        sync: false
-
   # Strapi CMS — ./cms, backed by Neon Postgres
   - type: web
     name: strapi-cms
@@ -73,7 +30,7 @@ services:
         sync: false
 
       # Portfolio origin(s) allowed to call the API, comma-separated,
-      # e.g. https://portfolio.onrender.com
+      # e.g. https://soorajpsuresh74.github.io
       - key: CORS_ORIGINS
         sync: false
 
