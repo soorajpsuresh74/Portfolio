@@ -10,5 +10,5 @@
 .inner {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 var(--gutter);
 }

@@ -10,7 +10,8 @@
   --amber: #e8a33d;
   --teal: #49c7a8;
   --blue: #6c9bff;
-  --maxw: 1080px;
+  --maxw: 100%;
+  --gutter: clamp(16px, 5vw, 96px);
 }
 
 * {
@@ -59,7 +60,7 @@ a {
 .wrap {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 var(--gutter);
 }
 
 .section-head {
