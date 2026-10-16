@@ -1,0 +1,98 @@
+{
+  // Run "Tasks: Run Task" -> "Dev: Start all" to spin up Strapi + the Vite site.
+  // First time? Run "Setup: Install all" (and the .env setup task) before that.
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Setup: Install site deps",
+      "type": "shell",
+      "command": "npm install",
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Setup: Install CMS deps",
+      "type": "shell",
+      "command": "npm install",
+      "options": { "cwd": "${workspaceFolder}/cms" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Setup: Create .env files",
+      "detail": "Copies .env.example to .env (root and cms) if missing",
+      "type": "shell",
+      "command": "node -e \"const fs=require('fs');for(const d of ['.','cms']){const t=d+'/.env';if(!fs.existsSync(t)){fs.copyFileSync(d+'/.env.example',t);console.log('created '+t)}else console.log(t+' already exists')}\"",
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Setup: Install all",
+      "dependsOn": [
+        "Setup: Install site deps",
+        "Setup: Install CMS deps",
+        "Setup: Create .env files"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Dev: CMS (Strapi)",
+      "detail": "Strapi admin at http://localhost:1337/admin",
+      "type": "shell",
+      "command": "npm run develop",
+      "options": { "cwd": "${workspaceFolder}/cms" },
+      "isBackground": true,
+      "presentation": { "group": "dev", "panel": "dedicated" },
+      "problemMatcher": {
+        "owner": "strapi",
+        "pattern": { "regexp": "^__never_match__$" },
+        "background": {
+          "activesBegin": true,
+          "beginsPattern": "Building|Starting|Loading Strapi",
+          "endsPattern": "started successfully|Welcome back|Strapi started|To manage your project"
+        }
+      }
+    },
+    {
+      "label": "Dev: Site (Vite)",
+      "detail": "Site at http://localhost:5173/Portfolio/",
+      "type": "shell",
+      "command": "npm run dev",
+      "options": { "cwd": "${workspaceFolder}" },
+      "isBackground": true,
+      "presentation": { "group": "dev", "panel": "dedicated" },
+      "problemMatcher": {
+        "owner": "vite",
+        "pattern": { "regexp": "^__never_match__$" },
+        "background": {
+          "activesBegin": true,
+          "beginsPattern": "VITE v",
+          "endsPattern": "Local:|ready in"
+        }
+      }
+    },
+    {
+      "label": "Dev: Start all",
+      "detail": "Strapi + Vite side by side",
+      "dependsOn": ["Dev: CMS (Strapi)", "Dev: Site (Vite)"],
+      "dependsOrder": "parallel",
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "Build: Site",
+      "type": "shell",
+      "command": "npm run build",
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build: CMS admin",
+      "type": "shell",
+      "command": "npm run build",
+      "options": { "cwd": "${workspaceFolder}/cms" },
+      "group": "build",
+      "problemMatcher": []
+    }
+  ]
+}
