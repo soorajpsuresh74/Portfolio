@@ -1,0 +1,10 @@
+{
+  "collectionName": "components_resume_educations",
+  "info": { "displayName": "Education", "icon": "book" },
+  "options": {},
+  "attributes": {
+    "label": { "type": "string", "maxLength": 80 },
+    "degree": { "type": "string", "required": true, "maxLength": 200 },
+    "period": { "type": "string", "maxLength": 40 }
+  }
+}

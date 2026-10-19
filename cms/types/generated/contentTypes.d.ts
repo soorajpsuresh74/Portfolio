@@ -482,7 +482,7 @@ export interface ApiCapabilityCapability extends Struct.CollectionTypeSchema {
 export interface ApiProfileProfile extends Struct.SingleTypeSchema {
   collectionName: 'profiles';
   info: {
-    description: 'Name, links and the text sections of the portfolio';
+    description: 'Name, contact details, the text sections of the portfolio, and resume content';
     displayName: 'Profile';
     pluralName: 'profiles';
     singularName: 'profile';
@@ -495,6 +495,11 @@ export interface ApiProfileProfile extends Struct.SingleTypeSchema {
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 3000;
       }>;
+    activities: Schema.Attribute.Component<'resume.activity', true>;
+    address: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 300;
+      }>;
     contactHeadline: Schema.Attribute.String &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 160;
@@ -502,7 +507,9 @@ export interface ApiProfileProfile extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    education: Schema.Attribute.Component<'resume.education', true>;
     email: Schema.Attribute.Email;
+    experience: Schema.Attribute.Component<'resume.experience', true>;
     focusIntro: Schema.Attribute.Text &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 1000;
@@ -532,6 +539,7 @@ export interface ApiProfileProfile extends Struct.SingleTypeSchema {
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 800;
       }>;
+    keyCompetencies: Schema.Attribute.Component<'shared.list-item', true>;
     linkedinUrl: Schema.Attribute.String &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 500;
@@ -547,7 +555,15 @@ export interface ApiProfileProfile extends Struct.SingleTypeSchema {
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 80;
       }>;
+    phone: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 30;
+      }>;
     publishedAt: Schema.Attribute.DateTime;
+    resumeSummary: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 1500;
+      }>;
     resumeUrl: Schema.Attribute.String &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 500;

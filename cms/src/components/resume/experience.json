@@ -1,0 +1,11 @@
+{
+  "collectionName": "components_resume_experiences",
+  "info": { "displayName": "Experience", "icon": "briefcase" },
+  "options": {},
+  "attributes": {
+    "company": { "type": "string", "required": true, "maxLength": 120 },
+    "role": { "type": "string", "maxLength": 120 },
+    "period": { "type": "string", "maxLength": 60 },
+    "description": { "type": "text", "maxLength": 2000 }
+  }
+}

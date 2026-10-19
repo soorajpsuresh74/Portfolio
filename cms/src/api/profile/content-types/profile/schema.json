@@ -5,7 +5,7 @@
     "singularName": "profile",
     "pluralName": "profiles",
     "displayName": "Profile",
-    "description": "Name, links and the text sections of the portfolio"
+    "description": "Name, contact details, the text sections of the portfolio, and resume content"
   },
   "options": {
     "draftAndPublish": true
@@ -22,6 +22,14 @@
     },
     "email": {
       "type": "email"
+    },
+    "phone": {
+      "type": "string",
+      "maxLength": 30
+    },
+    "address": {
+      "type": "text",
+      "maxLength": 300
     },
     "resumeUrl": {
       "type": "string",
@@ -71,6 +79,30 @@
     "contactHeadline": {
       "type": "string",
       "maxLength": 160
+    },
+    "resumeSummary": {
+      "type": "text",
+      "maxLength": 1500
+    },
+    "keyCompetencies": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.list-item"
+    },
+    "experience": {
+      "type": "component",
+      "repeatable": true,
+      "component": "resume.experience"
+    },
+    "education": {
+      "type": "component",
+      "repeatable": true,
+      "component": "resume.education"
+    },
+    "activities": {
+      "type": "component",
+      "repeatable": true,
+      "component": "resume.activity"
     }
   }
 }
