@@ -10,7 +10,7 @@ import * as bundled from "../data/portfolio";
 const API_URL = (import.meta.env.VITE_STRAPI_URL || "").replace(/\/+$/, "");
 
 // Bump when the content shape changes so old caches are discarded.
-const CACHE_KEY = "portfolio-content:v1";
+const CACHE_KEY = "portfolio-content:v2";
 // A cache older than this is ignored in favour of the bundled content.
 const CACHE_MAX_AGE_MS = 30 * 24 * 60 * 60 * 1000;
 // Render's free plan can take ~1 minute to wake up.
@@ -26,6 +26,7 @@ export const defaultContent = {
   focus: bundled.focus,
   projects: bundled.projects,
   contact: bundled.contact,
+  resume: bundled.resume,
 };
 
 export const isCmsConfigured = Boolean(API_URL);
@@ -85,6 +86,8 @@ function normalize({ profile, capabilities, skillGroups, projects }) {
     name: text(p.name, d.personal.name),
     title: text(p.title, d.personal.title),
     email: text(p.email, d.personal.email),
+    phone: text(p.phone, d.personal.phone),
+    address: text(p.address, d.personal.address),
     resumeUrl: safeUrl(p.resumeUrl) ?? d.personal.resumeUrl,
     links: {
       linkedin: safeUrl(p.linkedinUrl) ?? d.personal.links.linkedin,
@@ -103,7 +106,7 @@ function normalize({ profile, capabilities, skillGroups, projects }) {
       accent: text(p.heroAccent),
       sub: text(p.heroSub, d.hero.sub),
       secondaryCtas: [
-        { label: "View my resume", href: personal.resumeUrl },
+        { label: "View my resume", href: "#resume" },
         { label: "Get in touch", href: "#contact" },
       ],
     },
@@ -115,6 +118,28 @@ function normalize({ profile, capabilities, skillGroups, projects }) {
         : d.focus.items,
     },
     contact: { headline: text(p.contactHeadline, d.contact.headline) },
+    resume: {
+      summary: text(p.resumeSummary, text(p.about, d.resume.summary)),
+      competencies: p.keyCompetencies?.length
+        ? p.keyCompetencies.map((i) => i.text)
+        : d.resume.competencies,
+      experience: p.experience?.length
+        ? p.experience.map(({ company, role, period, description }) => ({
+            company,
+            role: role || "",
+            period: period || "",
+            description: description || "",
+          }))
+        : d.resume.experience,
+      education: p.education?.length
+        ? p.education.map(({ label, degree, period }) => ({
+            label: label || "",
+            degree,
+            period: period || "",
+          }))
+        : d.resume.education,
+      activities: p.activities?.length ? p.activities.map((a) => a.text) : d.resume.activities,
+    },
 
     // Collections are authoritative: an empty list in the CMS means show nothing.
     capabilities: [...capabilities].sort(byOrder).map((c) => ({

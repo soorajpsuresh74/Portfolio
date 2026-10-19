@@ -6,6 +6,8 @@ export const personal = {
   name: "Sooraj P S",
   title: "Full-Stack Developer & Application Security",
   email: "sooraj@example.com",
+  phone: "",
+  address: "",
   resumeUrl: "https://example.com/resume.pdf",
   links: {
     linkedin: "https://linkedin.com/in/your-handle",
@@ -29,7 +31,7 @@ export const hero = {
     "Full-stack developer working at the intersection of software engineering, application security, cloud infrastructure, and DevSecOps. I build SaaS applications end to end — and apply security practice throughout the build, not after it ships.",
   primaryCta: { label: "View my projects", href: "#projects" },
   secondaryCtas: [
-    { label: "View my resume", href: personal.resumeUrl },
+    { label: "View my resume", href: "#resume" },
     { label: "Get in touch", href: "#contact" },
   ],
 };
@@ -141,4 +143,49 @@ export const projects = [
 
 export const contact = {
   headline: "Let's build something reliable — and check it's secure.",
+};
+// Resume-only content, shown on the #resume page with the sections above.
+export const resume = {
+  summary: about.body,
+  competencies: [
+    "Threat Modeling and Risk Assessment",
+    "Software development",
+    "Security Architecture and Design",
+    "Compliance and Regulatory Knowledge",
+    "IOT, Database proficiency",
+    "Security Tool Proficiency",
+    "Programming and Scripting",
+    "Basics AI algorithms and solutions",
+  ],
+  experience: [
+    {
+      company: "Reflections Infos Systems Pvt Ltd",
+      role: "Software Developer and Security Intern",
+      period: "Mar 2024 - Present",
+      description:
+        "Learned software development and their security issues, and planning various mitigation strategies to prevent unintended application behavior and enhance overall security posture. Gained expertise in conducting security assessments and implementing robust security measures, ensuring applications are resilient against potential threats and vulnerabilities.",
+    },
+    {
+      company: "Kerala Police Academy",
+      role: "Intern",
+      period: "June 2022 - July 2022",
+      description:
+        "Evaluated various cryptographic algorithms and their strength against breaking, ensuring data integrity and confidentiality in secure applications.",
+    },
+  ],
+  education: [
+    {
+      label: "Post-graduation",
+      degree: "MSc Computer Science with specialisation in Cyber Security",
+      period: "2022-2024",
+    },
+    {
+      label: "Graduation",
+      degree: "BSc Computer Science with specialisation in Cyber Forensics",
+      period: "2019-2022",
+    },
+  ],
+  activities: [
+    "Extending the functionality of Flake8 and SonarQube by developing custom plugins and rules to enhance code quality and security checks, contributing to improved development practices and software reliability",
+  ],
 };

@@ -3,7 +3,57 @@
 // Initial CMS content, loaded once on first start. Mirrors src/data/portfolio.js
 // in the frontend so the site looks the same before anything is edited.
 
+// Resume-only content on the profile. Phone and address are left out of the
+// repo on purpose: enter them in the Strapi admin.
+const resume = {
+  keyCompetencies: [
+    'Threat Modeling and Risk Assessment',
+    'Software development',
+    'Security Architecture and Design',
+    'Compliance and Regulatory Knowledge',
+    'IOT, Database proficiency',
+    'Security Tool Proficiency',
+    'Programming and Scripting',
+    'Basics AI algorithms and solutions',
+  ].map((text) => ({ text })),
+  experience: [
+    {
+      company: 'Reflections Infos Systems Pvt Ltd',
+      role: 'Software Developer and Security Intern',
+      period: 'Mar 2024 - Present',
+      description:
+        'Learned software development and their security issues, and planning various mitigation strategies to prevent unintended application behavior and enhance overall security posture. Gained expertise in conducting security assessments and implementing robust security measures, ensuring applications are resilient against potential threats and vulnerabilities.',
+    },
+    {
+      company: 'Kerala Police Academy',
+      role: 'Intern',
+      period: 'June 2022 - July 2022',
+      description:
+        'Evaluated various cryptographic algorithms and their strength against breaking, ensuring data integrity and confidentiality in secure applications.',
+    },
+  ],
+  education: [
+    {
+      label: 'Post-graduation',
+      degree: 'MSc Computer Science with specialisation in Cyber Security',
+      period: '2022-2024',
+    },
+    {
+      label: 'Graduation',
+      degree: 'BSc Computer Science with specialisation in Cyber Forensics',
+      period: '2019-2022',
+    },
+  ],
+  activities: [
+    {
+      text: 'Extending the functionality of Flake8 and SonarQube by developing custom plugins and rules to enhance code quality and security checks, contributing to improved development practices and software reliability',
+    },
+  ],
+};
+
 module.exports = {
+  resume,
+
   profile: {
     name: 'Sooraj P S',
     title: 'Full-Stack Developer & Application Security',
@@ -41,6 +91,7 @@ module.exports = {
       },
     ],
     contactHeadline: "Let's build something reliable — and check it's secure.",
+    ...resume,
   },
 
   capabilities: [

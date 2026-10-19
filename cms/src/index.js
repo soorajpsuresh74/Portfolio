@@ -126,6 +126,29 @@ async function seedContent(strapi) {
   strapi.log.info('Seeded initial portfolio content.');
 }
 
+/**
+ * Fill the resume fields on a profile created before they existed. Runs once,
+ * and only touches a profile whose resume fields are all still empty.
+ */
+async function seedResume(strapi) {
+  const store = strapi.store({ type: 'core', name: 'portfolio' });
+  if (await store.get({ key: 'seeded-resume' })) return;
+
+  const profiles = strapi.documents('api::profile.profile');
+  const profile = await profiles.findFirst({
+    populate: ['keyCompetencies', 'experience', 'education', 'activities'],
+  });
+  const fields = Object.keys(seed.resume);
+
+  if (profile && fields.every((f) => !profile[f]?.length)) {
+    await profiles.update({ documentId: profile.documentId, data: seed.resume });
+    await profiles.publish({ documentId: profile.documentId });
+    strapi.log.info('Added resume content to the profile.');
+  }
+
+  await store.set({ key: 'seeded-resume', value: true });
+}
+
 module.exports = {
   register() {},
 
@@ -134,5 +157,6 @@ module.exports = {
     await disableSignups(strapi);
     await lockDownPublicRole(strapi);
     await seedContent(strapi);
+    await seedResume(strapi);
   },
 };

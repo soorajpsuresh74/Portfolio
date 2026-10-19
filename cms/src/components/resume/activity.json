@@ -1,0 +1,8 @@
+{
+  "collectionName": "components_resume_activities",
+  "info": { "displayName": "Activity", "icon": "star" },
+  "options": {},
+  "attributes": {
+    "text": { "type": "text", "required": true, "maxLength": 600 }
+  }
+}
